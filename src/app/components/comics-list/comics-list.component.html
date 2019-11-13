@@ -1,0 +1,43 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Marvel Comics</ion-title>
+    <ion-item>
+      <ion-input placeholder="Filter by text"></ion-input>
+      <ion-button>
+        <ion-icon slot="start" name="search"></ion-icon>
+        Search
+      </ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <ion-card *ngFor="let comic of comics">
+    <img src="{{comic.image}}" height=""/>
+    <ion-card-header>
+      <ion-card-subtitle>{{comic.shortDescription}}</ion-card-subtitle>
+      <ion-card-title>{{comic.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p [innerHTML]="comic.description"></p>
+    </ion-card-content>
+    <ion-item>
+      Votes: {{comic.votes}}
+    </ion-item>
+    <ion-item>
+      <ion-button expand="full" color="success" (click)="vote(comic, true)">
+        <ion-icon slot="start" name="thumbs-up"></ion-icon>
+        LIKE
+      </ion-button>
+      <ion-button expand="full" color="danger" (click)="vote(comic, false)">
+        <ion-icon slot="start" name="thumbs-down"></ion-icon>
+        DISLIKE
+      </ion-button>
+    </ion-item>
+  </ion-card>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

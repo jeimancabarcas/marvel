@@ -1,5 +1,7 @@
 {
   "name": "marvel",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
