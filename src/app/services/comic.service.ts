@@ -10,7 +10,7 @@ export class ComicService {
 
   API_KEY = 'b5dd158dd0e856443db7fb726fbc6bc9';
   HASH = '80182fcb24c6426319114b9e34eafed6';
-  API_URL = 'http://gateway.marvel.com/v1/public/comics?';
+  API_URL = 'https://gateway.marvel.com/v1/public/comics?';
 
   constructor(private http: HttpClient) { }
 
